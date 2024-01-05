@@ -1,0 +1,7 @@
+[GAME RUBAH INJEK KODOK]
+
+Update Beta 1.1
+1. Add BGM
+2. Add Mobs
+3. Add Cherry
+4. Add Win/Lose Screen

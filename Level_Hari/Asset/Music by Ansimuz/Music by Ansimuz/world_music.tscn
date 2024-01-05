@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://74ogo3frsydv"]
+
+[ext_resource type="AudioStream" uid="uid://dw3mhjgyrgyeo" path="res://Level_Hari/Asset/Music by Ansimuz/Music by Ansimuz/magic cliffs.ogg" id="1_7cpwj"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_7cpwj")
+autoplay = true

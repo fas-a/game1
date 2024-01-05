@@ -17,7 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://btdk5edbn4nxi" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" id="15_fosuv"]
 [ext_resource type="Texture2D" uid="uid://ckh3kwi5rcwpk" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" id="16_16lfb"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7lvnl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm0al"]
+size = Vector2(20, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei2td"]
 atlas = ExtResource("4_ailwx")
@@ -46,10 +47,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v5o7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei2td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5o7s")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -259,8 +266,8 @@ _data = {
 script = ExtResource("1_taj8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_7lvnl")
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_fm0al")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -9.53674e-07)

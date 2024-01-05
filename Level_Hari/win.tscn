@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://0to0ew5780pn"]
+
+[ext_resource type="Script" path="res://Level_Hari/Main.gd" id="1_rgi7v"]
+[ext_resource type="Script" path="res://Level_Hari/BG/bg.gd" id="2_j323u"]
+[ext_resource type="Texture2D" uid="uid://bqhhpltytpmpw" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/environment/Background/back.png" id="3_2jg77"]
+[ext_resource type="Texture2D" uid="uid://nsn0pwfyl62" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/environment/Background/middle.png" id="4_0vn72"]
+[ext_resource type="FontFile" uid="uid://umioye0a1by4" path="res://Level_Hari/Asset/PressStart2P-vaV7.ttf" id="5_7tjay"]
+[ext_resource type="AudioStream" uid="uid://f8gblgnrwput" path="res://Level_Hari/Asset/Music by Ansimuz/Music by Ansimuz/Victory  Sound Effect.mp3" id="6_15q2t"]
+
+[sub_resource type="FontVariation" id="FontVariation_8133y"]
+base_font = ExtResource("5_7tjay")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_rgi7v")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 423.0
+offset_top = 241.0
+offset_right = 705.0
+offset_bottom = 356.0
+size_flags_horizontal = 4
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 423.0
+offset_top = 370.0
+offset_right = 705.0
+offset_bottom = 485.0
+tooltip_text = "Quit button"
+text = "Quit"
+
+[node name="BG" type="ParallaxBackground" parent="."]
+script = ExtResource("2_j323u")
+
+[node name="Sky" type="ParallaxLayer" parent="BG"]
+motion_mirroring = Vector2(1152, 0)
+metadata/_edit_lock_ = true
+
+[node name="Back" type="Sprite2D" parent="BG/Sky"]
+position = Vector2(577.5, 357.5)
+scale = Vector2(3.0026, 2.97917)
+texture = ExtResource("3_2jg77")
+metadata/_edit_lock_ = true
+
+[node name="Forest" type="ParallaxLayer" parent="BG"]
+position = Vector2(6.10352e-05, 3.05176e-05)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1295, 0)
+metadata/_edit_lock_ = true
+
+[node name="Middle" type="Sprite2D" parent="BG/Forest"]
+position = Vector2(111, 508.001)
+scale = Vector2(1.22727, 1.22283)
+texture = ExtResource("4_0vn72")
+metadata/_edit_lock_ = true
+
+[node name="Middle2" type="Sprite2D" parent="BG/Forest"]
+position = Vector2(327, 508.001)
+scale = Vector2(1.22727, 1.22283)
+texture = ExtResource("4_0vn72")
+metadata/_edit_lock_ = true
+
+[node name="Middle3" type="Sprite2D" parent="BG/Forest"]
+position = Vector2(543, 509.001)
+scale = Vector2(1.22727, 1.22283)
+texture = ExtResource("4_0vn72")
+metadata/_edit_lock_ = true
+
+[node name="Middle4" type="Sprite2D" parent="BG/Forest"]
+position = Vector2(759, 509.001)
+scale = Vector2(1.22727, 1.22283)
+texture = ExtResource("4_0vn72")
+metadata/_edit_lock_ = true
+
+[node name="Middle5" type="Sprite2D" parent="BG/Forest"]
+position = Vector2(975, 509.001)
+scale = Vector2(1.22727, 1.22283)
+texture = ExtResource("4_0vn72")
+metadata/_edit_lock_ = true
+
+[node name="Middle6" type="Sprite2D" parent="BG/Forest"]
+position = Vector2(1191, 509.001)
+scale = Vector2(1.22727, 1.22283)
+texture = ExtResource("4_0vn72")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 399.0
+offset_top = 101.0
+offset_right = 719.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(1, 0.984314, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.360784, 0.360784, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_8133y")
+text = "CONGRATULATIONS
+KAMU SUDAH MENGINJAK
+10 KEPALA KODOK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_15q2t")
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

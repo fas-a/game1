@@ -1,0 +1,96 @@
+[gd_scene load_steps=17 format=3 uid="uid://byedwrthclgik"]
+
+[ext_resource type="Texture2D" uid="uid://74yjswn7v6fl" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/frog/idle/frog-idle-1.png" id="1_jxrai"]
+[ext_resource type="Script" path="res://Level_Hari/Mob/frog.gd" id="1_uy7y5"]
+[ext_resource type="Texture2D" uid="uid://dhu1wuv5by0y5" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-1.png" id="2_7n3qg"]
+[ext_resource type="Texture2D" uid="uid://boluunuoeq6s5" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/frog/idle/frog-idle-2.png" id="2_dfys3"]
+[ext_resource type="Texture2D" uid="uid://ehol8aad6dwa" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-2.png" id="3_7ahva"]
+[ext_resource type="Texture2D" uid="uid://jb4ld5iotxj4" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/frog/idle/frog-idle-3.png" id="3_bceh6"]
+[ext_resource type="Texture2D" uid="uid://fx4bfvu5g2bp" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-3.png" id="4_e3er3"]
+[ext_resource type="Texture2D" uid="uid://bky60adhot1us" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/frog/idle/frog-idle-4.png" id="4_mpvro"]
+[ext_resource type="Texture2D" uid="uid://cgiffqrgfadcm" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/frog/jump/frog-jump-1.png" id="5_kommh"]
+[ext_resource type="Texture2D" uid="uid://dhckvlx0xtvaw" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-4.png" id="5_totbo"]
+[ext_resource type="Texture2D" uid="uid://bi3my7pcqjr7" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/frog/jump/frog-jump-2.png" id="6_6kbgq"]
+[ext_resource type="Texture2D" uid="uid://wd071p15q1yg" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-5.png" id="6_sp2ox"]
+[ext_resource type="Texture2D" uid="uid://daove761kbgfx" path="res://Level_Hari/Asset/Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/enemy-death/enemy-death-6.png" id="7_8ds0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_671wc"]
+size = Vector2(20, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kleuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7n3qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ahva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e3er3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_totbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sp2ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8ds0o")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jxrai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dfys3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bceh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mpvro")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kommh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6kbgq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0to1y"]
+radius = 57.5674
+
+[node name="frog" type="CharacterBody2D"]
+script = ExtResource("1_uy7y5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_671wc")
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -11)
+sprite_frames = SubResource("SpriteFrames_kleuh")
+animation = &"idle"
+frame_progress = 0.305544
+
+[node name="playerdetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdetect"]
+shape = SubResource("CircleShape2D_0to1y")
+
+[connection signal="body_entered" from="playerdetect" to="." method="_on_playerdetect_body_entered"]
