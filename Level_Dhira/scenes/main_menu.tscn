@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://hmgjmbm10kim"]
+[gd_scene load_steps=5 format=3 uid="uid://hmgjmbm10kim"]
 
 [ext_resource type="Script" path="res://Level_Dhira/scenes/main_menu.gd" id="1_borcs"]
 [ext_resource type="Texture2D" uid="uid://h4xt8t2w5nc4" path="res://Level_Dhira/assets/Pink.png" id="2_whsaw"]
 [ext_resource type="Texture2D" uid="uid://lft7xfovdp60" path="res://Level_Dhira/assets/cooltext450302130459966.png" id="3_quoec"]
+[ext_resource type="AudioStream" uid="uid://cpegcrq3j47qf" path="res://Level_Dhira/assets/sound/Opening Theme.mp3" id="4_yfmw1"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_borcs")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
+texture_repeat = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -60,6 +62,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Level 2"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yfmw1")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]

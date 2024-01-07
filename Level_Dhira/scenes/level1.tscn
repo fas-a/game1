@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byin81dlrlqud"]
+[gd_scene load_steps=14 format=3 uid="uid://byin81dlrlqud"]
 
 [ext_resource type="Script" path="res://Level_Dhira/game_manager.gd" id="1_klbh7"]
 [ext_resource type="Texture2D" uid="uid://c7kv558rfe0gi" path="res://Level_Dhira/assets/Green.png" id="2_q42wa"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7uhl8tc13ahu" path="res://Level_Dhira/scenes/finish.tscn" id="7_5loj8"]
 [ext_resource type="PackedScene" uid="uid://3e450321kqfw" path="res://Level_Dhira/scenes/level2.tscn" id="8_qhukj"]
 [ext_resource type="Script" path="res://Level_Dhira/scenes/Respawn.gd" id="9_wckjq"]
+[ext_resource type="AudioStream" uid="uid://d3iudned7j3qk" path="res://Level_Dhira/assets/sound/Level 1.mp3" id="10_icshv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01204"]
 texture = ExtResource("3_fxi7h")
@@ -619,6 +620,12 @@ script = ExtResource("9_wckjq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Respawn"]
 position = Vector2(1775, 9)
 shape = SubResource("RectangleShape2D_x3e3f")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("10_icshv")
+autoplay = true
 
 [connection signal="child_entered_tree" from="SceneObjects/MainCharacterBody" to="GameManager" method="_on_main_character_body_child_entered_tree"]
 [connection signal="body_entered" from="Respawn" to="Respawn" method="_on_body_entered"]

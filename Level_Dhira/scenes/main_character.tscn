@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dyam5kow8pcnk"]
+[gd_scene load_steps=56 format=3 uid="uid://dyam5kow8pcnk"]
 
 [ext_resource type="Script" path="res://Level_Dhira/scenes/main_character.gd" id="1_llp16"]
 [ext_resource type="Texture2D" uid="uid://befojt4ojkdkc" path="res://Level_Dhira/assets/main_character/Idle (32x32).png" id="2_6y1wp"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dw8vbdeujt20c" path="res://Level_Dhira/assets/main_character/Hit (32x32).png" id="5_bn745"]
 [ext_resource type="Texture2D" uid="uid://btcp6x4dk0dul" path="res://Level_Dhira/assets/main_character/Run (32x32).png" id="7_oylgk"]
 [ext_resource type="Texture2D" uid="uid://dmd85s2u1o6gr" path="res://Level_Dhira/assets/main_character/Wall Jump (32x32).png" id="8_vxntb"]
+[ext_resource type="AudioStream" uid="uid://x476vwvddnxv" path="res://Level_Dhira/assets/sound/jump.mp3" id="9_i5dix"]
+[ext_resource type="AudioStream" uid="uid://0vjn6nam4o4i" path="res://Level_Dhira/assets/sound/eat.mp3" id="10_pp3kt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krbal"]
 atlas = ExtResource("2_6y1wp")
@@ -358,10 +360,16 @@ script = ExtResource("1_llp16")
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kc2kn")
+animation = &"falling"
 autoplay = "default"
-frame_progress = 0.506431
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_isgat")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_i5dix")
+
+[node name="EatSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_pp3kt")
